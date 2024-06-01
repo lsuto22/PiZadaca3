@@ -44,7 +44,9 @@ namespace MyDoc
                     MessageBox.Show("Uspješno ste prijavljeni!", "Dobrodošli!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FrmDoctors frmdoctors = new FrmDoctors();
+                    Hide();
                     frmdoctors.ShowDialog();
+                    Close();
                 }
                 else
                 {

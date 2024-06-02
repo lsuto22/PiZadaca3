@@ -122,5 +122,28 @@ namespace MyDoc
                 ShowDoctors();
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmAddDoctor frmdoctors = new FrmAddDoctor();
+            Hide();
+            frmdoctors.ShowDialog();
+            Close();
+        }
+
+        private void btnIzlaz_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAvailability_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -62,7 +62,7 @@ namespace MyDoc.Repositories
         }
         public static bool DeleteDoctorAttributes(int doctorId)
         {
-            string sql = $"UPDATE Doctors SET Ime_prezime = '', Specijalizacija = '', Kontakt = '', Lokacija = '', Dostupnost = '' WHERE ID_Lijecnik = {doctorId}";
+            string sql = $"DELETE FROM Doctors WHERE ID_Lijecnik = {doctorId}";
 
             DB.OpenConnection();
 
@@ -72,6 +72,41 @@ namespace MyDoc.Repositories
 
             return success;
         }
+        public static List<Doctor> GetDoctorsByLocation(string location)
+        {
+            List<Doctor> doctors = new List<Doctor>();
+            string sql = $"SELECT * FROM Doctors WHERE Lokacija = '{location}'";
+
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                Doctor doctor = CreateObject(reader);
+                doctors.Add(doctor);
+            }
+            reader.Close();
+            DB.CloseConnection();
+
+            return doctors;
+        }
+        public static List<Doctor> GetDoctorsByAvailability(string availability)
+        {
+            List<Doctor> doctors = new List<Doctor>();
+            string sql = $"SELECT * FROM Doctors WHERE Dostupnost = '{availability}'";
+
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                Doctor doctor = CreateObject(reader);
+                doctors.Add(doctor);
+            }
+            reader.Close();
+            DB.CloseConnection();
+
+            return doctors;
+        }
+
 
     }
 

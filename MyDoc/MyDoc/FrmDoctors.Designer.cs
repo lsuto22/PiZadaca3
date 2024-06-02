@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cboAvailability = new System.Windows.Forms.ComboBox();
             this.dgvDoctors = new System.Windows.Forms.DataGridView();
-            this.cboLocation = new System.Windows.Forms.ComboBox();
             this.txtAvailability = new System.Windows.Forms.Label();
             this.txtLocation = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.cboLocation = new System.Windows.Forms.ComboBox();
+            this.cboAvailability = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,15 +51,6 @@
             this.label1.Text = "Upravljanje podacima o liječnicima";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // cboAvailability
-            // 
-            this.cboAvailability.FormattingEnabled = true;
-            this.cboAvailability.Location = new System.Drawing.Point(708, 258);
-            this.cboAvailability.Name = "cboAvailability";
-            this.cboAvailability.Size = new System.Drawing.Size(132, 24);
-            this.cboAvailability.TabIndex = 2;
-            this.cboAvailability.SelectedIndexChanged += new System.EventHandler(this.cboAvailability_SelectedIndexChanged);
-            // 
             // dgvDoctors
             // 
             this.dgvDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -72,15 +63,6 @@
             this.dgvDoctors.Size = new System.Drawing.Size(864, 324);
             this.dgvDoctors.TabIndex = 3;
             this.dgvDoctors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cboLocation
-            // 
-            this.cboLocation.FormattingEnabled = true;
-            this.cboLocation.Location = new System.Drawing.Point(708, 200);
-            this.cboLocation.Name = "cboLocation";
-            this.cboLocation.Size = new System.Drawing.Size(132, 24);
-            this.cboLocation.TabIndex = 4;
-            this.cboLocation.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // txtAvailability
             // 
@@ -130,20 +112,47 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.Button2_Click);
             // 
+            // cboLocation
+            // 
+            this.cboLocation.FormattingEnabled = true;
+            this.cboLocation.Items.AddRange(new object[] {
+            "",
+            "Varazdin ",
+            "Zagreb",
+            "Split"});
+            this.cboLocation.Location = new System.Drawing.Point(721, 200);
+            this.cboLocation.Name = "cboLocation";
+            this.cboLocation.Size = new System.Drawing.Size(121, 24);
+            this.cboLocation.TabIndex = 10;
+            this.cboLocation.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_2);
+            // 
+            // cboAvailability
+            // 
+            this.cboAvailability.FormattingEnabled = true;
+            this.cboAvailability.Items.AddRange(new object[] {
+            "",
+            "Da",
+            "Ne"});
+            this.cboAvailability.Location = new System.Drawing.Point(721, 258);
+            this.cboAvailability.Name = "cboAvailability";
+            this.cboAvailability.Size = new System.Drawing.Size(121, 24);
+            this.cboAvailability.TabIndex = 11;
+            this.cboAvailability.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // FrmDoctors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(864, 636);
+            this.Controls.Add(this.cboAvailability);
+            this.Controls.Add(this.cboLocation);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtLocation);
             this.Controls.Add(this.txtAvailability);
-            this.Controls.Add(this.cboLocation);
             this.Controls.Add(this.dgvDoctors);
-            this.Controls.Add(this.cboAvailability);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -161,13 +170,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboAvailability;
         private System.Windows.Forms.DataGridView dgvDoctors;
-        private System.Windows.Forms.ComboBox cboLocation;
         private System.Windows.Forms.Label txtAvailability;
         private System.Windows.Forms.Label txtLocation;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ComboBox cboLocation;
+        private System.Windows.Forms.ComboBox cboAvailability;
     }
 }

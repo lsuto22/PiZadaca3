@@ -58,7 +58,7 @@ namespace MyDoc
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
+ 
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -72,22 +72,55 @@ namespace MyDoc
                 if (success)
                 {
                     ShowDoctors();
-                    MessageBox.Show("Liječnik je uspješno obrisan.");
+                    MessageBox.Show("Liječnik je uspješno obrisan.", "Uspješno brisanje!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Greška prilikom brisanja atributa odabranog liječnika.");
+                    MessageBox.Show("Greška prilikom brisanja odabranog liječnika.", "Pogreška", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Odaberite liječnika iz popisa.");
+                MessageBox.Show("Odaberite liječnika iz popisa.", "Pogreška", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
         private void cboAvailability_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+            string selectedLocation = cboLocation.SelectedItem.ToString();
+
+            if (!string.IsNullOrEmpty(selectedLocation))
+            {
+                List<Doctor> doctors = DoctorRepository.GetDoctorsByLocation(selectedLocation);
+                dgvDoctors.DataSource = doctors;
+            }
+            else
+            {
+                ShowDoctors();
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedAvailability = cboAvailability.SelectedItem.ToString();
+
+            if (!string.IsNullOrEmpty(selectedAvailability))
+            {
+                List<Doctor> doctors = DoctorRepository.GetDoctorsByAvailability(selectedAvailability);
+                dgvDoctors.DataSource = doctors;
+            }
+            else
+            {
+                ShowDoctors();
+            }
         }
     }
 }

@@ -43,14 +43,20 @@ namespace MyDoc.Repositories
         }
         private static Doctor CreateObject(SqlDataReader reader)
         {
-            int id = int.Parse(reader["Id"].ToString());
-            string firstName = reader["FirstName"].ToString();
-            string lastName = reader["LastName"].ToString();
+            int id = int.Parse(reader["ID_Lijecnik"].ToString());
+            string firstAndLastName = reader["Ime_prezime"].ToString();
+            string specialization = reader["Specijalizacija"].ToString();
+            string contact = reader["Kontakt"].ToString();
+            string location = reader["Lokacija"].ToString();
+            string availability = reader["Dostupnost"].ToString();
             var doctor = new Doctor
             {
                 Id = id,
-                FirstName = firstName,
-                LastName = lastName,
+                FirstAndLastName = firstAndLastName,
+                Specialization = specialization,
+                Contact = contact,
+                Location = location,
+                Availability = availability
             };
             return doctor;
         }

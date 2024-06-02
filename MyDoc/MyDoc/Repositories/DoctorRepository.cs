@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using DBLayer;
 using MyDoc.Models;
 
@@ -106,8 +107,46 @@ namespace MyDoc.Repositories
 
             return doctors;
         }
+        public static void InsertDoctor(Doctor doctor)
+        {
+            string sql = $"INSERT INTO Doctors (ID_lijecnik, Ime_prezime, Specijalizacija, Kontakt, Lokacija, Dostupnost) " +
+                         $"VALUES ({doctor.Id}, '{doctor.FirstAndLastName}', '{doctor.Specialization}', '{doctor.Contact}', '{doctor.Location}', '{doctor.Availability}')";
 
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+        public static void UpdateDoctor(Doctor doctor)
+        {
+            string sql = $"UPDATE Doctors SET ID_lijecnik = {doctor.Id}, Ime_prezime = {doctor.FirstAndLastName}, Specifikacija = {doctor.Specialization}, Kontakt = {doctor.Contact}, Lokacija = {doctor.Location}, Dostupnost = {doctor.Availability} ";
+
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+        public static bool IfDoctorIdExists(int doctorId)
+        {
+            string sql = $"SELECT * FROM Doctors WHERE ID_lijecnik = {doctorId}";
+
+            DB.OpenConnection();
+
+            using (var reader = DB.GetDataReader(sql))
+            {
+                if (reader.Read())
+                {
+                    reader.Close();
+                    DB.CloseConnection();
+                    return true;
+                }
+                else
+                {
+                    reader.Close();
+                    DB.CloseConnection();
+                    return false;
+                }
+            }
+
+        }
 
     }
-
 }

@@ -39,6 +39,7 @@
             this.cboAvailability = new System.Windows.Forms.ComboBox();
             this.btnIzlaz = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             this.txtAvailability.AutoSize = true;
             this.txtAvailability.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAvailability.Location = new System.Drawing.Point(413, 194);
+            this.txtAvailability.Location = new System.Drawing.Point(443, 193);
             this.txtAvailability.Name = "txtAvailability";
             this.txtAvailability.Size = new System.Drawing.Size(92, 18);
             this.txtAvailability.TabIndex = 5;
@@ -81,7 +82,7 @@
             // 
             this.txtLocation.AutoSize = true;
             this.txtLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocation.Location = new System.Drawing.Point(413, 140);
+            this.txtLocation.Location = new System.Drawing.Point(443, 139);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(62, 18);
             this.txtLocation.TabIndex = 6;
@@ -91,7 +92,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(446, 91);
+            this.label4.Location = new System.Drawing.Point(515, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(177, 20);
             this.label4.TabIndex = 7;
@@ -103,7 +104,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(34, 139);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(168, 73);
+            this.btnAdd.Size = new System.Drawing.Size(97, 86);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Dodaj liječnika";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -112,9 +113,9 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(217, 140);
+            this.btnDelete.Location = new System.Drawing.Point(174, 139);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(168, 72);
+            this.btnDelete.Size = new System.Drawing.Size(99, 85);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Obriši liječnika";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -128,7 +129,7 @@
             "Varazdin ",
             "Zagreb",
             "Split"});
-            this.cboLocation.Location = new System.Drawing.Point(520, 139);
+            this.cboLocation.Location = new System.Drawing.Point(554, 138);
             this.cboLocation.Name = "cboLocation";
             this.cboLocation.Size = new System.Drawing.Size(121, 24);
             this.cboLocation.TabIndex = 10;
@@ -141,7 +142,7 @@
             "",
             "Da",
             "Ne"});
-            this.cboAvailability.Location = new System.Drawing.Point(520, 193);
+            this.cboAvailability.Location = new System.Drawing.Point(554, 192);
             this.cboAvailability.Name = "cboAvailability";
             this.cboAvailability.Size = new System.Drawing.Size(121, 24);
             this.cboAvailability.TabIndex = 11;
@@ -150,7 +151,7 @@
             // btnIzlaz
             // 
             this.btnIzlaz.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIzlaz.Location = new System.Drawing.Point(679, 156);
+            this.btnIzlaz.Location = new System.Drawing.Point(694, 153);
             this.btnIzlaz.Name = "btnIzlaz";
             this.btnIzlaz.Size = new System.Drawing.Size(149, 42);
             this.btnIzlaz.TabIndex = 12;
@@ -162,12 +163,22 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 91);
+            this.label2.Location = new System.Drawing.Point(60, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(338, 20);
+            this.label2.Size = new System.Drawing.Size(337, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Opcije za dodavanje i brisanje liječnika";
+            this.label2.Text = "Opcije za uređivanje podataka liječnika";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(309, 140);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 85);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Ažuriraj liječnika";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FrmDoctors
             // 
@@ -175,6 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(864, 586);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnIzlaz);
             this.Controls.Add(this.cboAvailability);
@@ -212,5 +224,6 @@
         private System.Windows.Forms.ComboBox cboAvailability;
         private System.Windows.Forms.Button btnIzlaz;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

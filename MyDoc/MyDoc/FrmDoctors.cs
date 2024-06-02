@@ -58,7 +58,7 @@ namespace MyDoc
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
- 
+
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -145,5 +145,25 @@ namespace MyDoc
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgvDoctors.SelectedRows.Count > 0)
+            {
+                int doctorId = (int)dgvDoctors.SelectedRows[0].Cells["Id"].Value;
+                Doctor selectedDoctor = DoctorRepository.GetDoctorById(doctorId);
+
+                FrmUpdateDoctor frmdoctors = new FrmUpdateDoctor(selectedDoctor);
+                Hide();
+                frmdoctors.ShowDialog();
+                Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Odaberite liječnika iz popisa prije ažuriranja.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+

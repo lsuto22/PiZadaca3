@@ -107,6 +107,36 @@ namespace MyDoc.Repositories
 
             return doctors;
         }
+
+        public static Doctor GetDoctorById(int doctorId)
+        {
+            string sql = $"SELECT * FROM Doctors WHERE ID_lijecnik = {doctorId}";
+
+            DB.OpenConnection();
+            Doctor doctor = null;
+
+            using (var reader = DB.GetDataReader(sql))
+            {
+                if (reader.Read())
+                {
+                    doctor = new Doctor
+                    {
+                        Id = (int)reader["ID_lijecnik"],
+                        FirstAndLastName = reader["Ime_prezime"].ToString(),
+                        Specialization = reader["Specijalizacija"].ToString(),
+                        Contact = reader["Kontakt"].ToString(),
+                        Location = reader["Lokacija"].ToString(),
+                        Availability = reader["Dostupnost"].ToString()
+                    };
+                }
+                reader.Close();
+            }
+
+            DB.CloseConnection();
+            return doctor;
+        }
+
+        
         public static void InsertDoctor(Doctor doctor)
         {
             string sql = $"INSERT INTO Doctors (ID_lijecnik, Ime_prezime, Specijalizacija, Kontakt, Lokacija, Dostupnost) " +
@@ -118,7 +148,7 @@ namespace MyDoc.Repositories
         }
         public static void UpdateDoctor(Doctor doctor)
         {
-            string sql = $"UPDATE Doctors SET ID_lijecnik = {doctor.Id}, Ime_prezime = {doctor.FirstAndLastName}, Specifikacija = {doctor.Specialization}, Kontakt = {doctor.Contact}, Lokacija = {doctor.Location}, Dostupnost = {doctor.Availability} ";
+            string sql = $"UPDATE Doctors SET Ime_prezime = '{doctor.FirstAndLastName}', Specijalizacija = '{doctor.Specialization}', Kontakt = '{doctor.Contact}', Lokacija = '{doctor.Location}', Dostupnost = '{doctor.Availability}' WHERE ID_lijecnik = {doctor.Id} ";
 
             DB.OpenConnection();
             DB.ExecuteCommand(sql);

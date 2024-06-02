@@ -9,6 +9,7 @@ namespace MyDoc.Models
     public class Doctor : User
     {
         public int Specialization { get; set; }
+        public int Contact { get; set; }
         public int Location { get; set; }
         public int Availability { get; set; }
 

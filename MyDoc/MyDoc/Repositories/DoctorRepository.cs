@@ -60,6 +60,19 @@ namespace MyDoc.Repositories
             };
             return doctor;
         }
+        public static bool DeleteDoctorAttributes(int doctorId)
+        {
+            string sql = $"UPDATE Doctors SET ID_Lijecnik = '', Ime_prezime = '', Specijalizacija = '', Kontakt = '', Lokacija = '', Dostupnost = '' WHERE ID_Lijecnik = {doctorId}";
+
+            DB.OpenConnection();
+
+            bool success = DB.ExecuteCommand(sql) > 0;
+
+            DB.CloseConnection();
+
+            return success;
+        }
+
     }
 
 }

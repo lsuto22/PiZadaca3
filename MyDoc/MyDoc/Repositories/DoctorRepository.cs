@@ -62,7 +62,7 @@ namespace MyDoc.Repositories
         }
         public static bool DeleteDoctorAttributes(int doctorId)
         {
-            string sql = $"UPDATE Doctors SET ID_Lijecnik = '', Ime_prezime = '', Specijalizacija = '', Kontakt = '', Lokacija = '', Dostupnost = '' WHERE ID_Lijecnik = {doctorId}";
+            string sql = $"UPDATE Doctors SET Ime_prezime = '', Specijalizacija = '', Kontakt = '', Lokacija = '', Dostupnost = '' WHERE ID_Lijecnik = {doctorId}";
 
             DB.OpenConnection();
 
